@@ -1,0 +1,36 @@
+* Game Stages
+** Select Game Mode (If there is time)
+   - Build your Deck from All Available Cards
+   - Random Selection of Cards to Build your Deck
+** Build your Deck 
+   - Your character is the deck
+*** Card Types
+    - Introduction
+    - Action
+      - Story
+      - Joke
+      - Argument
+      - Exit Cards
+    - Question
+** Find a Date
+   - Choose your date based on basic statistics
+** Date Starts
+   - You are given a hand
+   - You play first
+   - Real time events
+*** Objectives
+    - You try to get information:
+      - About the current date
+      - About other people in the room
+    - You try to make the date like you:
+      - Answer quickly (spontaneous)
+      - Play cards correctly
+    - You want the date's deck to end:
+      - You win if their deck ends and the date likes you
+      - You lose if their ends and the date does not like you
+** Date Dynamics
+   - Maybe the first turn more important than the others,
+     you have to make a good first impression
+   - Gameplay:
+     - You use question cards to get information
+     - Use appropriate action cards to increase the ``likability gauge''
