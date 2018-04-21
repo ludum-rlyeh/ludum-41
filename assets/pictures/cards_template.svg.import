@@ -7,7 +7,7 @@ path="res://.import/cards_template.svg-cbc9fbeed4196e8ae53d9bb9c27b3a64.stex"
 [deps]
 
 source_file="res://assets/pictures/cards_template.svg"
-source_md5="ff1962d35506581f4828e7cbb29b5776"
+source_md5="613ed61687d6515c0f7879ebdf9a28d7"
 
 dest_files=[ "res://.import/cards_template.svg-cbc9fbeed4196e8ae53d9bb9c27b3a64.stex" ]
 dest_md5="9ca571c8afe09cbf77a4a8e9725c0008"

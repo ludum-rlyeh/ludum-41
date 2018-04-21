@@ -7,10 +7,10 @@ path="res://.import/board_example.svg-34a63690daa46fed6a13c24e20174359.stex"
 [deps]
 
 source_file="res://assets/pictures/board_example.svg"
-source_md5="7dbb7684997fe843df0b0186478c5628"
+source_md5="95eeb2f9d6f337b101c3eb86757587c4"
 
 dest_files=[ "res://.import/board_example.svg-34a63690daa46fed6a13c24e20174359.stex" ]
-dest_md5="c8fb7b31af5857378b12884723681396"
+dest_md5="18070bb93937eb17729075b012c1032d"
 
 [params]
 
