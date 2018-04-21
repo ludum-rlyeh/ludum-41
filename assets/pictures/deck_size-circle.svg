@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="7.3705359mm"
+   height="7.5122766mm"
+   viewBox="0 0 7.3705359 7.5122766"
+   version="1.1"
+   id="svg3506"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="deck_size-circle.svg">
+  <defs
+     id="defs3500" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="3.9285719"
+     inkscape:cy="374.19641"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3503">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(18.048363,-240.32719)">
+    <path
+       style="display:inline;opacity:0.919;fill:#009000;fill-opacity:1;stroke:none;stroke-width:2.83599997;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path10133"
+       sodipodi:type="arc"
+       sodipodi:cx="-14.363095"
+       sodipodi:cy="244.08333"
+       sodipodi:rx="3.6852679"
+       sodipodi:ry="3.7561383"
+       sodipodi:start="0"
+       sodipodi:end="6.2436711"
+       sodipodi:open="true"
+       d="m -10.677827,244.08333 a 3.6852679,3.7561383 0 0 1 -3.648864,3.75595 3.6852679,3.7561383 0 0 1 -3.720953,-3.68175 3.6852679,3.7561383 0 0 1 3.575349,-3.82869 3.6852679,3.7561383 0 0 1 3.791591,3.60611" />
+  </g>
+</svg>

@@ -1,4 +1,4 @@
-* Game Stages
+* Game Document
 ** Select Game Mode (If there is time)
    - Build your Deck from All Available Cards
    - Random Selection of Cards to Build your Deck
@@ -14,6 +14,8 @@
     - Question
 ** Find a Date
    - Choose your date based on basic statistics
+*** Date Stats
+    - Define the date's characteristics based on the deck that the date will use
 ** Date Starts
    - You are given a hand
    - You play first
@@ -29,8 +31,10 @@
       - You win if their deck ends and the date likes you
       - You lose if their ends and the date does not like you
 ** Date Dynamics
+*** The First Turn
    - Maybe the first turn more important than the others,
      you have to make a good first impression
+*** Gameplay Loop
    - Gameplay:
      - You use question cards to get information
      - Use appropriate action cards to increase the ``likability gauge''
