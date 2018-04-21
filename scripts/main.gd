@@ -16,16 +16,24 @@ const CARD_EFFECTS_PATH = "card_effects.gd"
 const CARD_EFFECTS_CLASS = preload(CARD_EFFECTS_PATH)
 
 const gauge_load = preload ("res://scenes/gauge.tscn")
+const deck_load = preload("res://scenes/deck_sprite.tscn")
+onready var deck = deck_load.instance();
 onready var gauge =  gauge_load.instance()
 
 var table
-var scence_size
+var scene_size
 
 func _ready():
-	scence_size = get_viewport().get_visible_rect().size
+	scene_size = get_viewport().get_visible_rect().size
 	
-	gauge.set_position(Vector2(0.9* scence_size.x, 0.1 * scence_size.y))
+	#place the gauge on the main scene
+	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
 	add_child(gauge)
+
+	#place the deck on the main scene
+	deck.set_position(Vector2(0.92* scene_size.x, 0.88 * scene_size.y))
+	deck.set_scale(0.8*Vector2(1,1))
+	add_child(deck)
 	
 	
 	var table = TABLE_CLASS.new(10, "player_1", "player_2")
