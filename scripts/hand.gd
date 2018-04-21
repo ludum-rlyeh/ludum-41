@@ -1,14 +1,15 @@
 extends Node2D
 
 var cards = []
-
-func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+func _init():
+	self.name = "hand"
+	var container = HBoxContainer.new()
+	container.set_name("container")
+	add_child(container)
 
 func add_card(var card):
-	add_child(card) #call _ready function of card
+	var container = self.get_node("./container")
+	container.add_child(card) #call _ready function of card
 	self.cards.append(card)
 
 
@@ -25,3 +26,13 @@ func pick_card(var card):
 		return true
 	else:
 		return false
+
+
+func _ready():
+	var container = self.get_node("./container")
+	var viewport_size = get_viewport().get_size()
+	var relative_position = get_parent().RELATIVE_POSITION
+	container.set_custom_minimum_size(Vector2(viewport_size.x, (1.0 - relative_position.y) * viewport_size.y))
+	container.set_size(Vector2(viewport_size.x, (1.0 - relative_position.y) * viewport_size.y))
+	print("size container : ", container.get_size())
+	container.set_alignment(BoxContainer.ALIGN_CENTER)
