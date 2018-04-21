@@ -87,7 +87,7 @@ func _ready():
 	add_child(opponent)
 	
 	var player = PLAYER_CLASS.new("philippe", deck, 5)
-	#add_child(player)
+	add_child(player)
 	
 	
 

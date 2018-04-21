@@ -5,15 +5,13 @@ const HAND_CLASS = preload(HAND_PATH)
 
 var texture_path
 
-var hand
+var hand = []
 var deck
 
 
 func _init(var texture_path, var deck, var starting_hand_size):
 	
 	self.texture_path = texture_path
-	
-	self.hand = HAND_CLASS.new()
 	
 	self.deck = deck
 	# pick starting hand size cards for the hand
@@ -41,7 +39,7 @@ func draw_card_from_deck():
 	var card = self.deck.draw_first_card()
 	
 	if card != null:
-		self.hand.add_card(card)
+		self.hand.append(card)
 	else:
 		print("The opponent's deck is empty")
 		
