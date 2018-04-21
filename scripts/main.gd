@@ -35,9 +35,6 @@ func _ready():
 	table.remove_card("player_1", card)
 	table.print_table()
 	
-	#table.clear_side("player_2")
-	#table.print_table()
-	
 	var cards = []
 	for i in range(10):
 		cards.append(CARD_CLASS.new(i, "test_name", [effect_init]))

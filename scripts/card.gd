@@ -3,6 +3,7 @@ extends Node
 var id
 var effects = []
 
+
 func print_card():
 	print("[ " , self.id , ", " , self.name + " ]")
 
