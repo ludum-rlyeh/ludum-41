@@ -6,6 +6,9 @@ const TABLE_CLASS = preload(TABLE_PATH)
 const PLAYER_PATH = "player.gd"
 const PLAYER_CLASS = preload(PLAYER_PATH)
 
+const OPPONENT_PATH = "opponent.gd"
+const OPPONENT_CLASS = preload(OPPONENT_PATH)
+
 const CARD_PATH = "card.gd"
 const CARD_CLASS = preload(CARD_PATH)
 
@@ -26,6 +29,9 @@ var scene_size
 func _ready():
 	self.set_name("engine")
 	scene_size = get_viewport().get_visible_rect().size
+	
+	# place the opponent on the main scene
+	
 	
 	#place the gauge on the main scene
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
@@ -72,8 +78,19 @@ func _ready():
 	for effect in effects:
 		effect.call_func(table)
 	
+	var cards_op = []
+	for i in range(10):
+		cards_op.append(CARD_CLASS.new(i, "test_name", [effect_init]))
+	
+	var deck_op = DECK_CLASS.new(cards_op, false)
+	
+	var opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
+	add_child(opponent)
+	
 	var player = PLAYER_CLASS.new("philippe", deck, 5)
 	add_child(player)
+	
+	
 
 func _process(delta):
 #	gauge.set_interest(delta + gauge.get_interest())
