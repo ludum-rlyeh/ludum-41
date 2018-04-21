@@ -2,9 +2,11 @@ extends Node
 
 var hand = []
 var deck
+var playFunction
 
-func _init(var name, var deck, var starting_hand_size):
+func _init(var name, var playFunction, var deck, var starting_hand_size):
 	self.name = name
+	self.playFunction = playFunction
 	self.deck = deck
 	# pick starting hand size cards for the hand
 	deck.draw_cards(starting_hand_size)
@@ -35,12 +37,3 @@ func pick_card(var card):
 	else:
 		return false
 
-#func _ready():
-#	# Called every time the node is added to the scene.
-#	# Initialization here
-#	pass
-
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
