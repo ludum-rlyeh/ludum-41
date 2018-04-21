@@ -1,39 +1,31 @@
 extends Node
 
-var hand = []
-var deck
-var playFunction
+const HAND_PATH = "res://scripts/hand.gd"
+const HAND_CLASS = preload(HAND_PATH)
 
-func _init(var name, var playFunction, var deck, var starting_hand_size):
+var hand
+var deck
+
+func _init(var name, var deck, var starting_hand_size):
 	self.name = name
-	self.playFunction = playFunction
+	
+	self.hand = HAND_CLASS.new()
+	add_child(self.hand)
+	
 	self.deck = deck
 	# pick starting hand size cards for the hand
-	deck.draw_cards(starting_hand_size)
 	
-func add_card_to_hand(var card):
-	self.hand.append(card)
+	for i in range(starting_hand_size) :
+		draw_card_from_deck()
+	
 
 func draw_card_from_deck():
-	var card = self.deck.pick_first()
+	var card = self.deck.draw_first_card()
+	
 	if card != null:
-		add_card_from_hand(card)
-		return card
+		self.hand.add_card(card)
 	else:
 		print("The deck is empty")
-		return null
-
-func find_card_index(var card):
-	for i in range(self.hand.size()):
-		if self.hand[i] != null && self.hand[i].id == card.id:
-			return i
-	return -1
-
-func pick_card(var card):
-	var card_index = find_card_index(card)
-	if card_index != -1:
-		hand.remove(card_index)
-		return true
-	else:
-		return false
+		
+	return card
 
