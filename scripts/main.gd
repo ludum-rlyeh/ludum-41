@@ -24,6 +24,7 @@ var table
 var scene_size
 
 func _ready():
+	self.set_name("engine")
 	scene_size = get_viewport().get_visible_rect().size
 	
 	#place the gauge on the main scene
@@ -80,3 +81,9 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	pass
+	
+func on_played_card(var card):
+	var effects = card.get_effects()
+	for effect in effects:
+		print(effect)
+		#effect.call_func(self)
