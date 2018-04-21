@@ -3,6 +3,9 @@ extends Node2D
 const TABLE_PATH = "table.gd"
 const TABLE_CLASS = preload(TABLE_PATH)
 
+const PLAYER_PATH = "player.gd"
+const PLAYER_CLASS = preload(PLAYER_PATH)
+
 const CARD_PATH = "card.gd"
 const CARD_CLASS = preload(CARD_PATH)
 
@@ -50,6 +53,9 @@ func _ready():
 	var effects = card.get_effects()
 	for effect in effects:
 		effect.call_func(table)
+	
+	var player = PLAYER_CLASS.new("philippe", deck, 5)
+	add_child(player)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
