@@ -1,9 +1,9 @@
 extends Node2D
 
-const TABLE_PATH = "Table.gd"
+const TABLE_PATH = "table.gd"
 const TABLE_CLASS = preload(TABLE_PATH)
 
-const CARD_PATH = "Card.gd"
+const CARD_PATH = "card.gd"
 const CARD_CLASS = preload(CARD_PATH)
 
 func _ready():
