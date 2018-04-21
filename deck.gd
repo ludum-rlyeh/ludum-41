@@ -1,21 +1,16 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+# number of remaining cards
 var size = 0
+#text printing the size on the scene
 onready var label = get_node("deck_size-circle/Label")
 
 func _ready():
 	label.set_text(String(size))
-	# Called every time the node is added to the scene.
-	# Initialization here
 	pass
 
-func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	pass
+#func _process(delta):
+#	pass
 
 func set_size(val):
 	size = val
