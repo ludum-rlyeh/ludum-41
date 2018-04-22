@@ -58,7 +58,7 @@ func _ready():
 	var table = TABLE_CLASS.new(10, "player_1", "player_2")
 	var card_effects = CARD_EFFECTS_CLASS
 	# example of effects written in the card_effects script named function01
-	var effect_init = funcref(card_effects, "i_play_guitar")
+	var effect_init = funcref(card_effects, "play_guitar")
 	
 #	var cards = []
 #	for i in range(10):
@@ -70,8 +70,8 @@ func _ready():
 
 	var cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/cards/i_play_guitar.tscn", [effect_init]))
-	
+		cards.append(CARD_CLASS.new(i, "test_name", [], "res://scenes/cards/question_whatdoyoulike.tscn"))
+		
 	var deck_op = DECK_OPPONENT_CLASS.new(cards, false)
 	
 	self.opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
@@ -80,7 +80,7 @@ func _ready():
 	
 	cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/cards/i_play_guitar.tscn", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", [effect_init], "res://scenes/cards/i_play_guitar.tscn"))
 	
 	var deck = DECK_CLASS.new(cards, false)
 	
@@ -106,6 +106,8 @@ func _process(delta):
 		var card_played = self.get_node("./opponent").play(self)
 		
 		bot_play_card(card_played)
+		
+		self.player.draw_card_from_deck()
 
 # used by bot
 func bot_play_card(var card):
@@ -133,6 +135,8 @@ func on_played_card(var card):
 		at_player = false
 		
 		# Do the effects of the card
+		card.play(self)
+		
 		var effects = card.get_effects()
 		for effect in effects:
 			effect.call_func(self)
