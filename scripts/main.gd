@@ -114,20 +114,37 @@ func _process(delta):
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	pass
-	
-func on_played_card(var card):
+
+# used by bot
+func bot_play_card(var card):
 	
 	# add card to historic
 	self.get_node("./historic").add_card(card, at_player)
 	
 	# change turn
-	if at_player < nb_player :
-		at_player += 1
-	else:
-		at_player = 1
+	at_player = 1
 	
 	# Do the effects of the card
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
 		# effect.call_func(self)
+	
+
+func on_played_card(var card):
+	
+	if at_player == 1 :
+		
+		# add card to historic
+		self.get_node("./historic").add_card(card, at_player)
+		
+		# change turn
+		at_player = 2
+		
+		# Do the effects of the card
+		var effects = card.get_effects()
+		for effect in effects:
+			print(effect)
+			# effect.call_func(self)
+	else:
+		print("not your turn !")
