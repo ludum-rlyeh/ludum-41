@@ -18,6 +18,9 @@ const DECK_CLASS = preload(DECK_PATH)
 const CARD_EFFECTS_PATH = "card_effects.gd"
 const CARD_EFFECTS_CLASS = preload(CARD_EFFECTS_PATH)
 
+const HISTORIC_PATH = "historic.gd"
+const HISTORIC_CLASS = preload(HISTORIC_PATH)
+
 const gauge_load = preload ("res://scenes/gauge.tscn")
 const deck_load = preload("res://scenes/deck_sprite.tscn")
 onready var deck = deck_load.instance();
@@ -30,11 +33,13 @@ var scene_size
 var turn_time = 0
 var difficulty = 0.01
 
+const nb_player = 2
+var at_player = 1 # 1 is the player, 2 is the opponent
+
 func _ready():
 	self.set_name("engine")
 	scene_size = get_viewport().get_visible_rect().size
 	
-	# place the opponent on the main scene
 	
 	# place the gauge on the main scene
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
@@ -91,9 +96,14 @@ func _ready():
 	var opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
 	add_child(opponent)
 	
-	var player = PLAYER_CLASS.new("philippe", deck, 5)
+	var player = PLAYER_CLASS.new("philippe", deck)
 	add_child(player)
+		# pick starting hand size cards for the hand
+	for i in range(5) :
+		player.draw_card_from_deck()
 	
+	# create game historic
+	add_child(HISTORIC_CLASS.new())
 
 
 func _process(delta):
@@ -106,6 +116,17 @@ func _process(delta):
 	pass
 	
 func on_played_card(var card):
+	
+	# add card to historic
+	self.get_node("./historic").add_card(card, at_player)
+	
+	# change turn
+	if at_player < nb_player :
+		at_player += 1
+	else:
+		at_player = 1
+	
+	# Do the effects of the card
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
