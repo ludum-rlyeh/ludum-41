@@ -5,6 +5,7 @@ const HAND_CLASS = preload(HAND_PATH)
 
 var texture_path
 
+var likes = []
 var hand = []
 var deck
 
