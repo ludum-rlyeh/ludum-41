@@ -22,6 +22,10 @@ func _process(delta):
 
 func set_interest(var val):
 	interest = val
+	if (interest < 0) : 
+		interest = 0
+	if (interest > 100):
+		interest = 100
 	
 func get_interest():
 	return interest
