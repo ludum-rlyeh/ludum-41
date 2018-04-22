@@ -44,6 +44,8 @@ func _ready():
 	
 	var sfx_player = AudioStreamPlayer.new()
 	sfx_player.set_name("sfx_player")
+	sfx_player.set_autoplay(true)
+	sfx_player.set_volume_db(-10)
 	add_child(sfx_player)
 	
 	

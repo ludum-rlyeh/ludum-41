@@ -99,4 +99,3 @@ func _input(event):
 		print("take")
 		emit_signal("play_card", self)
 		get_parent().remove_child(self)
-		
