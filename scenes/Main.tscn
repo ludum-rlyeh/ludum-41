@@ -22,5 +22,6 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 expand = true
+stretch_mode = 0
 
 
