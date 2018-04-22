@@ -70,7 +70,7 @@ func _ready():
 
 	var cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/cards/i_play_guitar.tscn", [effect_init]))
 	
 	var deck_op = DECK_OPPONENT_CLASS.new(cards, false)
 	
@@ -80,7 +80,7 @@ func _ready():
 	
 	cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/cards/i_play_guitar.tscn", [effect_init]))
 	
 	var deck = DECK_CLASS.new(cards, false)
 	
