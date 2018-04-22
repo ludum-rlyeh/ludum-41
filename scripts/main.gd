@@ -29,6 +29,10 @@ onready var gauge =  gauge_load.instance()
 var table
 var scene_size
 
+
+var turn_time = 0
+var difficulty = 0.01
+
 const nb_player = 2
 var at_player = 1 # 1 is the player, 2 is the opponent
 
@@ -37,12 +41,12 @@ func _ready():
 	scene_size = get_viewport().get_visible_rect().size
 	
 	
-	
-	#place the gauge on the main scene
+	# place the gauge on the main scene
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
+	gauge.set_interest(100)
 	add_child(gauge)
 
-	#place the deck on the main scene
+	# place the deck on the main scene
 	deck.set_position(Vector2(0.92* scene_size.x, 0.88 * scene_size.y))
 	deck.set_scale(0.8*Vector2(1,1))
 	add_child(deck)
@@ -52,7 +56,7 @@ func _ready():
 	var card_effects = CARD_EFFECTS_CLASS.new()
 	
 	# TEST
-	#example of effects written in the card_effects script named function01
+	# example of effects written in the card_effects script named function01
 	var effect_init = funcref(card_effects, "function01")
 	var card = CARD_CLASS.new(0, "test_name", [effect_init])
 	
@@ -101,9 +105,12 @@ func _ready():
 	# create game historic
 	add_child(HISTORIC_CLASS.new())
 
-func _process(delta):
-#	gauge.set_interest(delta + gauge.get_interest())
 
+func _process(delta):
+	turn_time += delta 
+	
+	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
+	 
 	# Called every frame. Delta is time since last frame.
 	# Update game logic here.
 	pass
@@ -123,4 +130,4 @@ func on_played_card(var card):
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
-		#effect.call_func(self)
+		# effect.call_func(self)

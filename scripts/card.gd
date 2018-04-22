@@ -81,5 +81,7 @@ func on_mouse_exited_from_card():
 
 func _input(event):
 	if self.is_inside and event.is_action_released("ui_accept"):
+		self.is_inside = false
 		emit_signal("play_card", self)
 		get_parent().remove_child(self)
+		
