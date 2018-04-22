@@ -3,6 +3,8 @@ extends Control
 const HAND_PATH = "res://scripts/hand.gd"
 const HAND_CLASS = preload(HAND_PATH)
 
+const portrait = preload("res://scenes/ThatGirl.tscn")
+
 var texture_path
 
 var likes = []
@@ -23,16 +25,21 @@ func _init(var texture_path, var deck, var starting_hand_size):
 	
 
 func _ready():
-	var texture_rect = TextureRect.new()
-	texture_rect.set_texture(load(self.texture_path))
 	
-	var texture_size = texture_rect.get_texture().get_size() 
+	var port = portrait.instance()
+	port.get_node("./AnimationPlayer").play("IDLE")
+	
+	
+	var texture_size = port.get_node('./Sprite').get_texture().get_size()
+	
+
 	var viewport_size = get_viewport().get_size()
 	
-	self.set_position(Vector2(viewport_size.x / 2 - texture_size.x / 2, 
-	viewport_size.y / 2 - texture_size.y / 2))
+	self.set_position(Vector2(viewport_size.x / 2 , 
+	texture_size.y / 2))
 	
-	add_child(texture_rect)
+	add_child(port)
+	
 
 # behaviour fonction of the opponent
 func play(var table):
