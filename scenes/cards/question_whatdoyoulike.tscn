@@ -1,8 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/pictures/question_card.svg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/cupcake_smiles/Cupcake Smiles Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/pictures/question_picture.svg" type="Texture" id=3]
+
+[sub_resource type="GDScript" id=3]
+
+script/source = "extends Control
+
+func action():
+	print(\"action\")"
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -36,6 +43,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
+script = SubResource( 3 )
 
 [node name="title" type="Label" parent="." index="0"]
 

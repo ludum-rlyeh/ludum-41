@@ -18,7 +18,7 @@ var ghost = Control.new()
 func print_card():
 	print("[ " , self.id , ", " , self.name + " ]")
 
-func _init(var id, var name, var path_graphics_scene, var effects):
+func _init(var id, var name, var effects, var path_graphics_scene = ""):
 	self.effects = effects
 	self.id = id
 	self.name = name
@@ -101,3 +101,6 @@ func _input(event):
 		get_parent().remove_child(self.ghost)
 		self.ghost.queue_free()
 		get_parent().remove_child(self)
+		
+func play(var engine):
+	get_node("textureRect").action(engine)
