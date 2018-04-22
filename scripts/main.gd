@@ -18,6 +18,9 @@ const DECK_CLASS = preload(DECK_PATH)
 const CARD_EFFECTS_PATH = "card_effects.gd"
 const CARD_EFFECTS_CLASS = preload(CARD_EFFECTS_PATH)
 
+const HISTORIC_PATH = "historic.gd"
+const HISTORIC_CLASS = preload(HISTORIC_PATH)
+
 const gauge_load = preload ("res://scenes/gauge.tscn")
 const deck_load = preload("res://scenes/deck_sprite.tscn")
 onready var deck = deck_load.instance();
@@ -26,11 +29,13 @@ onready var gauge =  gauge_load.instance()
 var table
 var scene_size
 
+const nb_player = 2
+var at_player = 1 # 1 is the player, 2 is the opponent
+
 func _ready():
 	self.set_name("engine")
 	scene_size = get_viewport().get_visible_rect().size
 	
-	# place the opponent on the main scene
 	
 	
 	#place the gauge on the main scene
@@ -90,7 +95,8 @@ func _ready():
 	var player = PLAYER_CLASS.new("philippe", deck, 5)
 	add_child(player)
 	
-	
+	# create game historic
+	add_child(HISTORIC_CLASS.new())
 
 func _process(delta):
 #	gauge.set_interest(delta + gauge.get_interest())
@@ -100,6 +106,17 @@ func _process(delta):
 	pass
 	
 func on_played_card(var card):
+	
+	# add card to historic
+	self.get_node("./historic").add_card(card, at_player)
+	
+	# change turn
+	if at_player < nb_player :
+		at_player += 1
+	else:
+		at_player = 1
+	
+	# Do the effects of the card
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
