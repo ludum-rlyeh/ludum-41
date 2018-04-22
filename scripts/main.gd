@@ -111,9 +111,6 @@ func _process(delta):
 	
 	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
 	 
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	pass
 
 # used by bot
 func bot_play_card(var card):

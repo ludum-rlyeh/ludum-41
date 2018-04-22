@@ -34,7 +34,11 @@ func _ready():
 
 # behaviour fonction of the opponent
 func play(var table):
-	pass
+	randomize()
+	var random_card = randi() % self.hand.get_size()
+	
+	return self.hand[rand_card]
+	
 
 func draw_card_from_deck():
 	var card = self.deck.draw_first_card()
