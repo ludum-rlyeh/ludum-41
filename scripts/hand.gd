@@ -27,7 +27,6 @@ func pick_card(var card):
 	else:
 		return false
 
-
 func _ready():
 	#Try to resize correctly the HBoxLayout child
 	var container = self.get_node("./container")
