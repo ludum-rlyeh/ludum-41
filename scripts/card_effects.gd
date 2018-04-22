@@ -2,7 +2,7 @@
 # TODO : write an engine class
 
 
-#write all function effects
+# play guitar depends on if the opponent likes guitar or not
 func i_play_guitar(var engine):
 	
 	# sfx !!
@@ -10,9 +10,13 @@ func i_play_guitar(var engine):
 	sfx_player.set_stream(load("res://assets/sounds/holee.wav"))
 	sfx_player.play()
 	
-	
-	# Do other stuff
+	# Do the effect
+	var opponent = engine.get_node("./opponent")
+	if opponent.likes.has("guitar") :
+		engine.gauge.increase_interest(10)
+	else :
+		engine.gauge.decrease_interest(10)
 
-func function01(var table):
-	print("FUNCTION : ", table)
+func function01(var engine):
+	print("FUNCTION : ", engine)
 

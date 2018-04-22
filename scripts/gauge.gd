@@ -20,6 +20,16 @@ func _process(delta):
 	cursor.set_position(Vector2(0, local_scale - local_scale *  interest /100 ))
 	pass
 
+func increase_interest(var val):
+	interest += val
+	if (interest > 100):
+		interest = 100
+
+func decrease_interest(var val):
+	interest -= val
+	if (interest < 0):
+		interest = 0
+
 func set_interest(var val):
 	interest = val
 	if (interest < 0) : 

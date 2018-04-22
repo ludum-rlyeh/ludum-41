@@ -101,5 +101,3 @@ func _input(event):
 		get_parent().remove_child(self.ghost)
 		self.ghost.queue_free()
 		get_parent().remove_child(self)
-		
-		
