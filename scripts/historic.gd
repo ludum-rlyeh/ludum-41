@@ -15,6 +15,8 @@ func _ready():
 	container.set_custom_minimum_size(Vector2(viewport_size.x * 0.5, viewport_size.y + 0.5))
 	container.set_size(Vector2(viewport_size.x * 0.5, viewport_size.y + 0.5))
 	container.set_alignment(BoxContainer.ALIGN_CENTER)
+	
+	self.set_position(Vector2(0, viewport_size.y * 0.25))
 
 
 func add_card(var card, var player):
