@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://deck.gd" type="Script" id=1]
+[ext_resource path="res://scripts/deck_sprite.gd" type="Script" id=1]
 [ext_resource path="res://assets/pictures/deck_card.svg" type="Texture" id=2]
 [ext_resource path="res://assets/pictures/deck_size-circle.svg" type="Texture" id=3]
 
