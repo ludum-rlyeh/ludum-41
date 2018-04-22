@@ -5,17 +5,22 @@ const HAND_CLASS = preload(HAND_PATH)
 
 const portrait = preload("res://scenes/ThatGirl.tscn")
 
+var port
 var texture_path
 
 var likes = []
 var hand = []
 var deck
 
+func _process(delta):
+	var engine = self.get_tree().get_root().get_node("engine")
+	if engine.interest < 40:
+		port.get_node("./AnimationPlayer").play("BORED")
 
 func _init(var texture_path, var deck, var starting_hand_size):
 	
 	self.name = "opponent"
-	
+
 	self.texture_path = texture_path
 	
 	self.deck = deck
@@ -25,8 +30,7 @@ func _init(var texture_path, var deck, var starting_hand_size):
 	
 
 func _ready():
-	
-	var port = portrait.instance()
+	self.port = portrait.instance()
 	port.get_node("./AnimationPlayer").play("IDLE")
 	
 	

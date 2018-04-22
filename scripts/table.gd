@@ -4,6 +4,8 @@ var initial_length
 var player_1
 var player_2
 
+var interest
+
 var cards = {player_1: [], player_2: []}
 
 func print_table():
