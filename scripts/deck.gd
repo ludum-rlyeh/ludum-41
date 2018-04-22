@@ -34,8 +34,6 @@ func draw_first_card():
 	return self.cards.pop_front()
 
 
-
-
 #
 # is_shuffled:
 #	false: Shuffles the deck

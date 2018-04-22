@@ -34,7 +34,7 @@ var turn_time = 0
 var difficulty = 0.01
 
 const nb_player = 2
-var at_player = 1 # 1 is the player, 2 is the opponent
+var at_player = true # at the opponent if false
 
 func _ready():
 	self.set_name("engine")
@@ -53,23 +53,11 @@ func _ready():
 	
 	
 	var table = TABLE_CLASS.new(10, "player_1", "player_2")
-	var card_effects = CARD_EFFECTS_CLASS.new()
+	var card_effects = CARD_EFFECTS_CLASS
 	
 	# TEST
 	# example of effects written in the card_effects script named function01
 	var effect_init = funcref(card_effects, "function01")
-	var card = CARD_CLASS.new(0, "test_name", [effect_init])
-	
-	table.print_table()
-	
-	table.add_card("player_1", card)
-	table.print_table()
-	
-	table.add_card("player_2", card)
-	table.print_table()
-	
-	table.remove_card("player_1", card)
-	table.print_table()
 	
 	var cards = []
 	for i in range(10):
@@ -77,15 +65,6 @@ func _ready():
 	
 	var deck = DECK_CLASS.new(cards, false)
 	deck.print_cards()
-	
-	var hand = deck.draw_cards(5)
-	for card in hand:
-		card.print_card()
-		
-		
-	var effects = card.get_effects()
-	for effect in effects:
-		effect.call_func(table)
 	
 	var cards_op = []
 	for i in range(10):
@@ -98,7 +77,7 @@ func _ready():
 	
 	var player = PLAYER_CLASS.new("philippe", deck)
 	add_child(player)
-		# pick starting hand size cards for the hand
+	# pick starting hand size cards for the hand
 	for i in range(5) :
 		player.draw_card_from_deck()
 	
@@ -107,27 +86,45 @@ func _ready():
 
 
 func _process(delta):
-	turn_time += delta 
+	turn_time += delta
 	
 	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
 	 
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	pass
-	
-func on_played_card(var card):
+	# bot play
+	if not at_player :
+		
+		# Ask bot to play a card
+		var card_played = self.get_node("./opponent").play(self)
+		
+		bot_play_card(card_played)
+
+# used by bot
+func bot_play_card(var card):
 	
 	# add card to historic
 	self.get_node("./historic").add_card(card, at_player)
 	
 	# change turn
-	if at_player < nb_player :
-		at_player += 1
-	else:
-		at_player = 1
+	at_player = true
 	
 	# Do the effects of the card
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
-		# effect.call_func(self)
+#		effect.call_func(self)
+	
+
+func on_played_card(var card):
+	if at_player :
+		# add card to historic
+		self.get_node("./historic").add_card(card, at_player)
+		
+		# at the bot to play
+		at_player = false
+		
+		# Do the effects of the card
+		var effects = card.get_effects()
+		for effect in effects:
+			effect.call_func(self)
+	else:
+		print("not your turn !")
