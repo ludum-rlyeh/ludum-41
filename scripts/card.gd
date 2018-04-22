@@ -41,13 +41,13 @@ func _ready():
 #		scale_factor_texture = layout_size.y / texture_rect.get_texture().get_size().y
 #	texture_rect.set_scale(Vector2(scale_factor_texture, scale_factor_texture))
 #	self.set_custom_minimum_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y ))
-	resize_card(viewport_size, 1.0)
+	resize_card(viewport_size, 1.0, 0.1)
 	self.size_container = get_parent().get_size()
 	texture_rect.connect("mouse_entered", self, "on_mouse_entered_in_card")
 	texture_rect.connect("mouse_exited", self, "on_mouse_exited_from_card")
 	self.connect("play_card", self.get_tree().get_root().get_node("engine"), "on_played_card")
 
-func resize_card(var viewport_size, var scale_factor):
+func resize_card(var viewport_size, var scale_factor, var between):
 	var texture_rect = get_node("textureRect")
 	var layout_size = get_parent().get_size()
 	var scale_factor_texture
@@ -56,8 +56,8 @@ func resize_card(var viewport_size, var scale_factor):
 	else:
 		scale_factor_texture = layout_size.y / texture_rect.get_texture().get_size().y
 	texture_rect.set_scale(Vector2(scale_factor_texture, scale_factor_texture))
-	self.set_custom_minimum_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y ))
-	self.set_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y ))
+	self.set_custom_minimum_size(Vector2(get_parent().get_size().x * between, get_parent().get_size().y ))
+	self.set_size(Vector2(get_parent().get_size().x * between, get_parent().get_size().y ))
 
 #func on_resized():
 #	print("size")

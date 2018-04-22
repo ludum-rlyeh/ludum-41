@@ -29,10 +29,7 @@ func _ready():
 	var port = portrait.instance()
 	port.get_node("./AnimationPlayer").play("IDLE")
 	
-	
 	var texture_size = port.get_node('./Sprite').get_texture().get_size()
-	
-
 	var viewport_size = get_viewport().get_size()
 	
 	self.set_position(Vector2(viewport_size.x / 2 , 
@@ -47,7 +44,6 @@ func play(var table):
 	var random_card = randi() % self.hand.size()
 	
 	return self.hand[random_card]
-	
 
 func draw_card_from_deck():
 	var card = self.deck.draw_first_card()
