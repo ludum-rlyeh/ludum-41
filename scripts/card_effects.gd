@@ -3,5 +3,5 @@
 
 #write all function effects
 func function01(var table):
-	print("FUNCTION : ", self)
+	print("FUNCTION : ", table)
 

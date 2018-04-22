@@ -27,13 +27,14 @@ func add_card(var card, var player):
 
 func update_view():
 	var container = self.get_node("./container")
-	if container.get_child_count() == nb_cards_in_historic :
-		container.remove_child(0)
 	var last = self.cards.back()
-	var signals = last.card.get_signal_list()
-#	for signal_to_disconnect in signals:
-#		print(signal_to_disconnect.)
-	print(signals)
 	container.add_child(last.card)
-	container.print_tree()
-	
+	last.card.resize_card(get_viewport().get_size(), 1.0)
+	last.card.set_block_signals(true)
+	var children = last.card.get_children()
+	for child in children:
+		child.set_block_signals(true)
+	print("nombre de cartes dans l'historique ", container.get_child_count())
+	while container.get_child_count() > nb_cards_in_historic :
+		container.remove_child(container.get_child(0))
+		
