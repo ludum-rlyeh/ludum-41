@@ -18,7 +18,7 @@ var ghost = Control.new()
 func print_card():
 	print("[ " , self.id , ", " , self.name + " ]")
 
-func _init(var id, var name, var path_graphics_scene, var effects):
+func _init(var id, var name, var effects, var path_graphics_scene = ""):
 	self.effects = effects
 	self.id = id
 	self.name = name
@@ -32,18 +32,20 @@ func get_effects():
 func _ready():
 	print("Card ", self.id, " instanced")
 	var viewport_size = get_viewport().get_size()
-	var scene = load(path_graphics_scene).instance()
-#	var texture_rect = TextureRect.new()
-#	texture_rect.set_name("textureRect")
-#	texture_rect.set_texture(load("res://assets/pictures/card_argument.png"))
-	add_child(scene)
-#	add_child(texture_rect)
-	resize_card(viewport_size, 1.0, 0.1)
-	self.size_container = get_parent().get_size()
-	var texture_rect = self.get_node("textureRect")
-	texture_rect.connect("mouse_entered", self, "on_mouse_entered_in_card")
-	texture_rect.connect("mouse_exited", self, "on_mouse_exited_from_card")
-	self.connect("play_card", self.get_tree().get_root().get_node("engine"), "on_played_card")
+	print(path_graphics_scene)
+	if path_graphics_scene != "":
+		var scene = load(path_graphics_scene).instance()
+	#	var texture_rect = TextureRect.new()
+	#	texture_rect.set_name("textureRect")
+	#	texture_rect.set_texture(load("res://assets/pictures/card_argument.png"))
+		add_child(scene)
+	#	add_child(texture_rect)
+		resize_card(viewport_size, 1.0, 0.1)
+		self.size_container = get_parent().get_size()
+		var texture_rect = self.get_node("textureRect")
+		texture_rect.connect("mouse_entered", self, "on_mouse_entered_in_card")
+		texture_rect.connect("mouse_exited", self, "on_mouse_exited_from_card")
+		self.connect("play_card", self.get_tree().get_root().get_node("engine"), "on_played_card")
 
 func resize_card(var viewport_size, var scale_factor, var between):
 	var texture_rect = get_node("textureRect")
@@ -101,3 +103,6 @@ func _input(event):
 		get_parent().remove_child(self.ghost)
 		self.ghost.queue_free()
 		get_parent().remove_child(self)
+		
+func play(var engine):
+	get_node("textureRect").action(engine)

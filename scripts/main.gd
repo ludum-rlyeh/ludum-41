@@ -70,8 +70,8 @@ func _ready():
 
 	var cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
-	
+		cards.append(CARD_CLASS.new(i, "test_name", [], "res://scenes/cards/question_whatdoyoulike.tscn"))
+		
 	var deck_op = DECK_OPPONENT_CLASS.new(cards, false)
 	
 	self.opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
@@ -80,7 +80,7 @@ func _ready():
 	
 	cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", [effect_init], "res://scenes/cards/question_whatdoyoulike.tscn"))
 	
 	var deck = DECK_CLASS.new(cards, false)
 	
@@ -133,6 +133,8 @@ func on_played_card(var card):
 		at_player = false
 		
 		# Do the effects of the card
+		card.play(self)
+		
 		var effects = card.get_effects()
 		for effect in effects:
 			effect.call_func(self)
