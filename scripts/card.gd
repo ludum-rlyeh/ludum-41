@@ -8,6 +8,8 @@ var is_inside
 
 var size_container
 
+var last_depth
+
 func print_card():
 	print("[ " , self.id , ", " , self.name + " ]")
 
@@ -69,6 +71,7 @@ func resize_card(var texture_rect, var viewport_size, var scale_factor):
 func on_mouse_entered_in_card():
 	print("enter")
 	resize_card(self.get_node("textureRect"), get_viewport().get_size(), 1.1)
+	self.last_depth = self.get_node("textureRect").get_
 	self.is_inside = true
 
 func on_mouse_exited_from_card():
