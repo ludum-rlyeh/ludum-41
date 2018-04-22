@@ -53,7 +53,6 @@ func _ready():
 	add_child(gauge)
 	
 	# TEST
-	
 	var table = TABLE_CLASS.new(10, "player_1", "player_2")
 	var card_effects = CARD_EFFECTS_CLASS
 	# example of effects written in the card_effects script named function01
@@ -62,21 +61,13 @@ func _ready():
 	
 	var cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
 	
 	var deck = DECK_CLASS.new(cards, false)
-
-	# place the deck on the main scene
-#	deck.set_position(Vector2(0.92* scene_size.x, 0.88 * scene_size.y))
-#	deck.set_scale(0.8*Vector2(1,1))
-#	add_child(deck)
-	
-#	var deck = DECK_CLASS.new(cards, false)
-#	deck.print_cards()
 	
 	var cards_op = []
 	for i in range(10):
-		cards_op.append(CARD_CLASS.new(i, "test_name", [effect_init]))
+		cards_op.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
 	
 	var deck_op = DECK_CLASS.new(cards_op, false)
 	
