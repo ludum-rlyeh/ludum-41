@@ -15,6 +15,9 @@ const CARD_CLASS = preload(CARD_PATH)
 const DECK_PATH = "deck.gd"
 const DECK_CLASS = preload(DECK_PATH)
 
+const DECK_OPPONENT_PATH = "deck_opponent.gd"
+const DECK_OPPONENT_CLASS = preload(DECK_OPPONENT_PATH)
+
 const CARD_EFFECTS_PATH = "card_effects.gd"
 const CARD_EFFECTS_CLASS = preload(CARD_EFFECTS_PATH)
 
@@ -46,7 +49,6 @@ func _ready():
 	sfx_player.set_name("sfx_player")
 	add_child(sfx_player)
 	
-	
 	# place the gauge on the main scene
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
 	gauge.set_interest(100)
@@ -58,21 +60,29 @@ func _ready():
 	# example of effects written in the card_effects script named function01
 	var effect_init = funcref(card_effects, "i_play_guitar")
 	
+#	var cards = []
+#	for i in range(10):
+#		cards.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
 	
+#	var cards_op = []
+#	for i in range(10):
+#		cards_op.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
+
 	var cards = []
 	for i in range(10):
-		cards.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
+		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
 	
-	var deck = DECK_CLASS.new(cards, false)
-	
-	var cards_op = []
-	for i in range(10):
-		cards_op.append(CARD_CLASS.new(i, "test_name", "testgraphics", [effect_init]))
-	
-	var deck_op = DECK_CLASS.new(cards_op, false)
+	var deck_op = DECK_OPPONENT_CLASS.new(cards, false)
 	
 	self.opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
 	add_child(self.opponent)
+	
+	
+	cards = []
+	for i in range(10):
+		cards.append(CARD_CLASS.new(i, "test_name", "res://scenes/test_card.tscn", [effect_init]))
+	
+	var deck = DECK_CLASS.new(cards, false)
 	
 	self.player = PLAYER_CLASS.new("philippe", deck)
 	add_child(self.player)

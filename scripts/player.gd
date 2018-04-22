@@ -18,6 +18,7 @@ func _init(var name, var deck):
 	
 
 func draw_card_from_deck():
+	print(deck.cards.size())
 	var card = self.deck.draw_first_card()
 	
 	if card != null:

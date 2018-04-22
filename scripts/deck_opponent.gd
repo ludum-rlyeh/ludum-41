@@ -1,12 +1,5 @@
 extends Node
 
-signal change_label_number
-
-const RELATIVE_POSITION = Vector2(0.92,0.88)
-const DECK_SCALE = Vector2(0.8,0.8)
-
-const DECK_SPRITE_PATH = "res://scenes/deck_sprite.tscn"
-
 var cards = []
 
 func print_cards():
@@ -34,14 +27,10 @@ func draw_cards(var number):
 	
 	for i in range(number):
 		cards.append(self.cards.pop_front())
-	emit_signal("change_label_number", cards.size())
 	return cards
 
 func draw_first_card():
-	print("draw card : size deck : ", self.cards.size())
 	var card = self.cards.pop_front()
-	emit_signal("change_label_number", cards.size())
-	print("after signal : draw card : size deck : ", self.cards.size())
 	return card
 #
 # is_shuffled:
@@ -51,19 +40,9 @@ func draw_first_card():
 func _init(var cards, var is_shuffled = false):
 	randomize()
 	self.cards = cards
-	print("init deck : ", self.cards.size())
 	
 	if !is_shuffled:
 		self.shuffle()
-
-func _ready():
-	var viewport_size = get_viewport().get_size()
-	var deck_sprite = load(DECK_SPRITE_PATH).instance()
-	deck_sprite.set_position(viewport_size * RELATIVE_POSITION)
-	deck_sprite.set_scale(DECK_SCALE)
-	add_child(deck_sprite)
-	deck_sprite.set_size(cards.size())
-	self.connect("change_label_number", deck_sprite, "set_size")
 
 
 #func _process(delta):

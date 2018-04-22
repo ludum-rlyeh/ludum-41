@@ -14,8 +14,12 @@ func _ready():
 #	pass
 
 func set_size(val):
+	print("nb card restantes ",val)
 	size = val
-	label.set_text(String(val))
+	call_deferred("change_label_number")
+	
+func change_label_number():
+	label.set_text(String(self.size))
 
 func get_size():
 	return size
