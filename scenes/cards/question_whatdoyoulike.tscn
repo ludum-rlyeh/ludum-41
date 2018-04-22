@@ -4,14 +4,14 @@
 [ext_resource path="res://assets/fonts/cupcake_smiles/Cupcake Smiles Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/pictures/question_picture.svg" type="Texture" id=3]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Control
 
-func action():
+func action(var scene):
 	print(\"action\")"
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 
 size = 40
 use_mipmaps = true
@@ -19,7 +19,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Font/fallback", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 25
 use_mipmaps = false
@@ -43,7 +43,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
-script = SubResource( 3 )
+script = SubResource( 1 )
 
 [node name="title" type="Label" parent="." index="0"]
 
@@ -61,7 +61,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "What do you do?"
 align = 1
@@ -86,7 +86,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "You must play a story card for the following turn. Otherwise, you loose 5 points of interest.
 "
