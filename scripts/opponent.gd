@@ -8,14 +8,14 @@ const portrait = preload("res://scenes/ThatGirl.tscn")
 var port
 var texture_path
 
-var likes = []
+var likes = ["guitar"]
 var hand = []
 var deck
 
 func _process(delta):
 	var engine = self.get_tree().get_root().get_node("engine")
 	
-	if engine.interest < 40 and port.get_node("./AnimationPlayer").get_current_animation() != 'BORED':
+	if engine.gauge.interest < 40 and port.get_node("./AnimationPlayer").get_current_animation() != 'BORED':
 		port.get_node("./AnimationPlayer").play("BORED")
 
 func _init(var texture_path, var deck, var starting_hand_size):
