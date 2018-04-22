@@ -87,8 +87,11 @@ func _ready():
 	var opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
 	add_child(opponent)
 	
-	var player = PLAYER_CLASS.new("philippe", deck, 5)
+	var player = PLAYER_CLASS.new("philippe", deck)
 	add_child(player)
+		# pick starting hand size cards for the hand
+	for i in range(5) :
+		player.draw_card_from_deck()
 	
 	
 
