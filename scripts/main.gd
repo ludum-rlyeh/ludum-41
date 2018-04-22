@@ -40,6 +40,10 @@ func _ready():
 	self.set_name("engine")
 	scene_size = get_viewport().get_visible_rect().size
 	
+	var sfx_player = AudioStreamPlayer.new()
+	sfx_player.set_name("sfx_player")
+	add_child(sfx_player)
+	
 	
 	# place the gauge on the main scene
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
@@ -57,7 +61,7 @@ func _ready():
 	
 	# TEST
 	# example of effects written in the card_effects script named function01
-	var effect_init = funcref(card_effects, "function01")
+	var effect_init = funcref(card_effects, "i_play_guitar")
 	
 	var cards = []
 	for i in range(10):
@@ -116,6 +120,7 @@ func bot_play_card(var card):
 
 func on_played_card(var card):
 	if at_player :
+		
 		# add card to historic
 		self.get_node("./historic").add_card(card, at_player)
 		
