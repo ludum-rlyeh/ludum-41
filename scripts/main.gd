@@ -34,7 +34,7 @@ var turn_time = 0
 var difficulty = 0.01
 
 const nb_player = 2
-var at_player = 1 # 1 is the player, 2 is the opponent
+var at_player = true # at the opponent if false
 
 func _ready():
 	self.set_name("engine")
@@ -107,10 +107,17 @@ func _ready():
 
 
 func _process(delta):
-	turn_time += delta 
+	turn_time += delta
 	
 	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
 	 
+	# bot play
+	if not at_player :
+		
+		# Ask bot to play a card
+		var card_played = self.get_node("./opponent").play(self)
+		
+		bot_play_card(card_played)
 
 # used by bot
 func bot_play_card(var card):
@@ -119,24 +126,24 @@ func bot_play_card(var card):
 	self.get_node("./historic").add_card(card, at_player)
 	
 	# change turn
-	at_player = 1
+	at_player = true
 	
 	# Do the effects of the card
 	var effects = card.get_effects()
 	for effect in effects:
 		print(effect)
-		# effect.call_func(self)
+#		effect.call_func(self)
 	
 
 func on_played_card(var card):
 	
-	if at_player == 1 :
+	if at_player :
 		
 		# add card to historic
 		self.get_node("./historic").add_card(card, at_player)
 		
-		# change turn
-		at_player = 2
+		# at the bot to play
+		at_player = false
 		
 		# Do the effects of the card
 		var effects = card.get_effects()

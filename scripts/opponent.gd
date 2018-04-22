@@ -12,6 +12,8 @@ var deck
 
 func _init(var texture_path, var deck, var starting_hand_size):
 	
+	self.name = "opponent"
+	
 	self.texture_path = texture_path
 	
 	self.deck = deck
@@ -35,9 +37,9 @@ func _ready():
 # behaviour fonction of the opponent
 func play(var table):
 	randomize()
-	var random_card = randi() % self.hand.get_size()
+	var random_card = randi() % self.hand.size()
 	
-	return self.hand[rand_card]
+	return self.hand[random_card]
 	
 
 func draw_card_from_deck():
