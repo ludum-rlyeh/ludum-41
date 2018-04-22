@@ -45,7 +45,6 @@ func _ready():
 	
 	
 	self.size_container = get_parent().get_size()
-	print("size_container ", size_container)
 	texture_rect.connect("mouse_entered", self, "on_mouse_entered_in_card")
 	texture_rect.connect("mouse_exited", self, "on_mouse_exited_from_card")
 	self.connect("play_card", self.get_tree().get_root().get_node("engine"), "on_played_card")
@@ -71,7 +70,6 @@ func resize_card(var texture_rect, var viewport_size, var scale_factor):
 	
 func on_mouse_entered_in_card():
 	if !self.is_inside:
-		print("enter")
 		call_deferred("extract_from_container")
 		#resize_card(self.get_node("textureRect"), get_viewport().get_size(), 1.1)
 		self.is_inside = true
@@ -80,7 +78,6 @@ func extract_from_container():
 	#TODO : be careful, here it's not very clean...
 	var position = self.get_position() + get_parent().get_parent().get_parent().get_position()
 	self.container = self.get_parent()
-	print(position)
 	self.last_depth = self.get_index()
 	var engine = self.get_tree().get_root().get_node("engine")
 	self.container.remove_child(self)
@@ -90,7 +87,6 @@ func extract_from_container():
 
 func on_mouse_exited_from_card():
 	if self.is_inside:
-		print("exit")
 		call_deferred("insert_in_container")
 		#resize_card(self.get_node("textureRect"), get_viewport().get_size(), 1.0)
 	self.is_inside = false
