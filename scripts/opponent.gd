@@ -15,6 +15,9 @@ var deck
 func _process(delta):
 	var engine = self.get_tree().get_root().get_node("engine")
 	
+	if engine.gauge.interest >= 40 and port.get_node("./AnimationPlayer").get_current_animation() != 'IDLE':
+		port.get_node("./AnimationPlayer").play("IDLE")
+	
 	if engine.gauge.interest < 40 and port.get_node("./AnimationPlayer").get_current_animation() != 'BORED':
 		port.get_node("./AnimationPlayer").play("BORED")
 
