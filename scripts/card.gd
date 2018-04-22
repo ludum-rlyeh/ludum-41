@@ -14,7 +14,6 @@ var last_depth
 func print_card():
 	print("[ " , self.id , ", " , self.name + " ]")
 
-
 func _init(var id, var name, var effects):
 	self.effects = effects
 	self.id = id
@@ -34,34 +33,31 @@ func _ready():
 	
 	
 	#resize cards to be contained in the hboxcontainer
-	var layout_size = get_parent().get_size()
-	var scale_factor_texture
-	if texture_rect.get_texture().get_size().y < layout_size.y:
-		scale_factor_texture = texture_rect.get_texture().get_size().y / layout_size.y
-	else:
-		scale_factor_texture = layout_size.y / texture_rect.get_texture().get_size().y
-	texture_rect.set_scale(Vector2(scale_factor_texture, scale_factor_texture))
-	self.set_custom_minimum_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y ))
-	
-	
+#	var layout_size = get_parent().get_size()
+#	var scale_factor_texture
+#	if texture_rect.get_texture().get_size().y < layout_size.y:
+#		scale_factor_texture = texture_rect.get_texture().get_size().y / layout_size.y
+#	else:
+#		scale_factor_texture = layout_size.y / texture_rect.get_texture().get_size().y
+#	texture_rect.set_scale(Vector2(scale_factor_texture, scale_factor_texture))
+#	self.set_custom_minimum_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y ))
+	resize_card(viewport_size, 1.0, 0.1)
 	self.size_container = get_parent().get_size()
 	texture_rect.connect("mouse_entered", self, "on_mouse_entered_in_card")
 	texture_rect.connect("mouse_exited", self, "on_mouse_exited_from_card")
 	self.connect("play_card", self.get_tree().get_root().get_node("engine"), "on_played_card")
 
-func resize_card(var texture_rect, var viewport_size, var scale_factor):
+func resize_card(var viewport_size, var scale_factor, var between):
+	var texture_rect = get_node("textureRect")
 	var layout_size = get_parent().get_size()
 	var scale_factor_texture
 	if texture_rect.get_texture().get_size().y < layout_size.y:
 		scale_factor_texture = texture_rect.get_texture().get_size().y / layout_size.y
 	else:
 		scale_factor_texture = layout_size.y / texture_rect.get_texture().get_size().y
-	scale_factor_texture *= scale_factor
 	texture_rect.set_scale(Vector2(scale_factor_texture, scale_factor_texture))
-	if scale_factor > 1:
-		self.set_size(Vector2(get_parent().get_size().x/10.0, get_parent().get_size().y *  scale_factor))
-	else:
-		self.set_size(Vector2(self.size_container.x/10.0, self.size_container.y *  scale_factor))
+	self.set_custom_minimum_size(Vector2(get_parent().get_size().x * between, get_parent().get_size().y ))
+	self.set_size(Vector2(get_parent().get_size().x * between, get_parent().get_size().y ))
 
 #func on_resized():
 #	print("size")
@@ -100,6 +96,7 @@ func insert_in_container():
 func _input(event):
 	if self.is_inside and event.is_action_released("ui_accept"):
 		self.is_inside = false
+		print("take")
 		emit_signal("play_card", self)
 		get_parent().remove_child(self)
 		

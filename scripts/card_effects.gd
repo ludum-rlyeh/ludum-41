@@ -13,4 +13,6 @@ func i_play_guitar(var engine):
 	
 	# Do other stuff
 
+func function01(var table):
+	print("FUNCTION : ", table)
 

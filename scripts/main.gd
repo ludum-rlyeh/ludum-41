@@ -22,19 +22,21 @@ const HISTORIC_PATH = "historic.gd"
 const HISTORIC_CLASS = preload(HISTORIC_PATH)
 
 const gauge_load = preload ("res://scenes/gauge.tscn")
-const deck_load = preload("res://scenes/deck_sprite.tscn")
-onready var deck = deck_load.instance();
 onready var gauge =  gauge_load.instance()
 
 var table
 var scene_size
 
+var interest = 60
 
 var turn_time = 0
 var difficulty = 0.01
 
 const nb_player = 2
 var at_player = true # at the opponent if false
+
+var player
+var opponent
 
 func _ready():
 	self.set_name("engine")
@@ -49,26 +51,28 @@ func _ready():
 	gauge.set_position(Vector2(0.9* scene_size.x, 0.1 * scene_size.y))
 	gauge.set_interest(100)
 	add_child(gauge)
-
-	# place the deck on the main scene
-	deck.set_position(Vector2(0.92* scene_size.x, 0.88 * scene_size.y))
-	deck.set_scale(0.8*Vector2(1,1))
-	add_child(deck)
 	
+	# TEST
 	
 	var table = TABLE_CLASS.new(10, "player_1", "player_2")
 	var card_effects = CARD_EFFECTS_CLASS
-	
-	# TEST
 	# example of effects written in the card_effects script named function01
 	var effect_init = funcref(card_effects, "i_play_guitar")
+	
 	
 	var cards = []
 	for i in range(10):
 		cards.append(CARD_CLASS.new(i, "test_name", [effect_init]))
 	
 	var deck = DECK_CLASS.new(cards, false)
-	deck.print_cards()
+
+	# place the deck on the main scene
+#	deck.set_position(Vector2(0.92* scene_size.x, 0.88 * scene_size.y))
+#	deck.set_scale(0.8*Vector2(1,1))
+#	add_child(deck)
+	
+#	var deck = DECK_CLASS.new(cards, false)
+#	deck.print_cards()
 	
 	var cards_op = []
 	for i in range(10):
@@ -76,23 +80,24 @@ func _ready():
 	
 	var deck_op = DECK_CLASS.new(cards_op, false)
 	
-	var opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
-	add_child(opponent)
+	self.opponent = OPPONENT_CLASS.new("res://assets/pictures/woman_face2.svg", deck_op, 5)
+	add_child(self.opponent)
 	
-	var player = PLAYER_CLASS.new("philippe", deck)
-	add_child(player)
+	self.player = PLAYER_CLASS.new("philippe", deck)
+	add_child(self.player)
+	
 	# pick starting hand size cards for the hand
-	for i in range(5) :
-		player.draw_card_from_deck()
+	for i in range(4) :
+		self.player.draw_card_from_deck()
 	
 	# create game historic
-	add_child(HISTORIC_CLASS.new())
+	add_child(HISTORIC_CLASS.new(self.player, self.opponent))
 
 
 func _process(delta):
 	turn_time += delta
-	
-	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
+	self.interest = self.interest - (difficulty*turn_time)
+	gauge.set_interest(self.interest)
 	 
 	# bot play
 	if not at_player :
@@ -106,7 +111,7 @@ func _process(delta):
 func bot_play_card(var card):
 	
 	# add card to historic
-	self.get_node("./historic").add_card(card, at_player)
+	self.get_node("./historic").add_card(card, opponent)
 	
 	# change turn
 	at_player = true
@@ -122,7 +127,7 @@ func on_played_card(var card):
 	if at_player :
 		
 		# add card to historic
-		self.get_node("./historic").add_card(card, at_player)
+		self.get_node("./historic").add_card(card, player)
 		
 		# at the bot to play
 		at_player = false
