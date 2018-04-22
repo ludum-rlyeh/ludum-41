@@ -27,6 +27,7 @@ onready var gauge =  gauge_load.instance()
 var table
 var scene_size
 
+var interest = 60
 
 var turn_time = 0
 var difficulty = 0.01
@@ -91,8 +92,8 @@ func _ready():
 
 func _process(delta):
 	turn_time += delta
-	
-	gauge.set_interest(gauge.get_interest() - (difficulty*turn_time))
+	self.interest = self.interest - (difficulty*turn_time)
+	gauge.set_interest(self.interest)
 	 
 	# bot play
 	if not at_player :
