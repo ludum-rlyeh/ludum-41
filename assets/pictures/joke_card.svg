@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="75.386993mm"
+   height="96.22554mm"
+   viewBox="0 0 75.386993 96.22554"
+   version="1.1"
+   id="svg1636"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="joke_card.svg">
+  <defs
+     id="defs1630" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-55.150513"
+     inkscape:cy="206.72559"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="3200"
+     inkscape:window-height="1675"
+     inkscape:window-x="-13"
+     inkscape:window-y="-13"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata1633">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(4.6861868,0.6256561)">
+    <g
+       transform="translate(-88.404893,-101.4771)"
+       id="g6390">
+      <path
+         sodipodi:type="star"
+         style="opacity:1;fill:#d8aad3;fill-opacity:1;stroke:#a846ae;stroke-width:0.88518119;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path4960"
+         sodipodi:sides="4"
+         sodipodi:cx="-80.99865"
+         sodipodi:cy="-61.122456"
+         sodipodi:r1="47.137283"
+         sodipodi:r2="42.469227"
+         sodipodi:arg1="0.36487102"
+         sodipodi:arg2="1.1502692"
+         inkscape:flatsided="true"
+         inkscape:rounded="0.11"
+         inkscape:randomized="0"
+         d="m -36.964423,-44.302515 c -2.616569,6.850118 -54.004049,29.830854 -60.854167,27.214286 -6.85012,-2.616569 -29.83085,-54.004049 -27.21429,-60.854167 2.61657,-6.850118 54.004053,-29.830854 60.854171,-27.214284 6.850118,2.61657 29.830854,54.004047 27.214286,60.854165 z"
+         inkscape:transform-center-x="-0.91218412"
+         inkscape:transform-center-y="1.6709084"
+         transform="matrix(-0.91231211,-0.49553629,0.41142564,-1.1754458,72.663499,36.980311)" />
+      <flowRoot
+         transform="matrix(0.6692265,0,0,0.53188654,53.947063,82.516228)"
+         style="font-style:normal;font-weight:normal;font-size:15.25177479px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+         id="flowRoot4996"
+         xml:space="preserve"><flowRegion
+           style="font-size:15.25177479px;text-align:center;text-anchor:middle"
+           id="flowRegion4992"><rect
+             style="font-size:15.25177479px;text-align:center;text-anchor:middle"
+             y="49.737682"
+             x="47.477169"
+             height="19.353029"
+             width="102.65981"
+             id="rect4990" /></flowRegion><flowPara
+           style="font-size:15.25177479px;text-align:center;text-anchor:middle"
+           id="flowPara4994">Joke</flowPara></flowRoot>    </g>
+    <g
+       transform="translate(-89.741239,-2.1100723)"
+       id="g924">
+      <rect
+         rx="5"
+         y="49.27182"
+         x="91.036674"
+         height="40.880707"
+         width="63.423752"
+         id="rect920"
+         style="opacity:0.99900004;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.33043468;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+      <rect
+         rx="4.99999"
+         y="9.0766363"
+         x="91.612762"
+         height="13.701637"
+         width="62.271572"
+         id="rect922"
+         style="opacity:0.99900004;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:normal" />
+    </g>
+  </g>
+</svg>
