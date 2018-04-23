@@ -14,7 +14,7 @@
    viewBox="0 0 75.386993 96.22554"
    version="1.1"
    id="svg1636"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="exit_card.svg">
   <defs
      id="defs1630" />
@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="-340.71203"
+     inkscape:cx="-138.0027"
      inkscape:cy="229.58274"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -35,10 +35,10 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="3200"
-     inkscape:window-height="1675"
-     inkscape:window-x="-13"
-     inkscape:window-y="-13"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata1633">
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -57,42 +57,24 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(5.2531495,-5.4219629)">
-    <g
-       id="g6376"
-       transform="translate(-7.4087936,-195.68735)">
-      <path
-         sodipodi:type="star"
-         style="opacity:1;fill:#c0c1c2;fill-opacity:1;stroke:#434343;stroke-width:0.88518119;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path4998"
-         sodipodi:sides="4"
-         sodipodi:cx="-80.99865"
-         sodipodi:cy="-61.122456"
-         sodipodi:r1="47.137283"
-         sodipodi:r2="42.469227"
-         sodipodi:arg1="0.36487102"
-         sodipodi:arg2="1.1502692"
-         inkscape:flatsided="true"
-         inkscape:rounded="0.11"
-         inkscape:randomized="0"
-         d="m -36.964423,-44.302515 c -2.616569,6.850118 -54.004049,29.830854 -60.854167,27.214286 -6.85012,-2.616569 -29.83085,-54.004049 -27.21429,-60.854167 2.61657,-6.850118 54.004053,-29.830854 60.854171,-27.214284 6.850118,2.61657 29.830854,54.004047 27.214286,60.854165 z"
-         inkscape:transform-center-x="-0.91218412"
-         inkscape:transform-center-y="1.6709084"
-         transform="matrix(-0.91231211,-0.49553629,0.41142564,-1.1754458,-8.8995631,137.23818)" />
-      <flowRoot
-         xml:space="preserve"
-         id="flowRoot5006"
-         style="font-style:normal;font-weight:normal;font-size:15.25177479px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
-         transform="matrix(0.6692265,0,0,0.53188654,-26.14995,182.50682)"><flowRegion
-           id="flowRegion5002"
-           style="font-size:15.25177479px;text-align:center;text-anchor:middle"><rect
-             id="rect5000"
-             width="102.65981"
-             height="19.353029"
-             x="47.477169"
-             y="49.737682"
-             style="font-size:15.25177479px;text-align:center;text-anchor:middle" /></flowRegion><flowPara
-           id="flowPara5004"
-           style="font-size:15.25177479px;text-align:center;text-anchor:middle">Exit</flowPara></flowRoot>    </g>
+    <path
+       transform="matrix(-0.91231211,-0.49553629,0.41142564,-1.1754458,-16.308357,-58.44917)"
+       inkscape:transform-center-y="1.6709084"
+       inkscape:transform-center-x="-0.91218412"
+       d="m -36.964423,-44.302515 c -2.616569,6.850118 -54.004049,29.830854 -60.854167,27.214286 -6.85012,-2.616569 -29.83085,-54.004049 -27.21429,-60.854167 2.61657,-6.850118 54.004053,-29.830854 60.854171,-27.214284 6.850118,2.61657 29.830854,54.004047 27.214286,60.854165 z"
+       inkscape:randomized="0"
+       inkscape:rounded="0.11"
+       inkscape:flatsided="true"
+       sodipodi:arg2="1.1502692"
+       sodipodi:arg1="0.36487102"
+       sodipodi:r2="42.469227"
+       sodipodi:r1="47.137283"
+       sodipodi:cy="-61.122456"
+       sodipodi:cx="-80.99865"
+       sodipodi:sides="4"
+       id="path4998"
+       style="opacity:1;fill:#c0c1c2;fill-opacity:1;stroke:#434343;stroke-width:0.88518119;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="star" />
     <g
        id="g977"
        transform="translate(-90.308204,3.937546)">
