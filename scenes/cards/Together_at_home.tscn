@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/pictures/exit_card.svg" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/cupcake_smiles/Cupcake Smiles Bold.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/cupcake_smiles/Cupcake Smiles Italic.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/pictures/home_exit_card.svg" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 
@@ -99,5 +100,11 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="home_exit_card" type="Sprite" parent="." index="2"]
+
+position = Vector2( 139.913, 132.491 )
+scale = Vector2( 0.309767, 0.309767 )
+texture = ExtResource( 4 )
 
 
